@@ -15,6 +15,16 @@ export const ChainTypes = [
 	ChainType.Avax,
 	ChainType.Syscoin,
 	ChainType.Rollux,
+	ChainType.Base,
+	ChainType.Blast,
+	ChainType.Fantom,
+	ChainType.Mantle,
+	ChainType.Aurora,
+	ChainType.Manta,
+	ChainType.Era,
+	ChainType.Gnosis,
+	ChainType.Linea,
+	ChainType.Scroll,
 	ChainType.RPCBase
 ];
 export const ChainTypeNames = [
@@ -28,6 +38,16 @@ export const ChainTypeNames = [
 	strings('wallet.avalanche_network'),
 	strings('wallet.syscoin_network'),
 	strings('wallet.rollux_network'),
+	strings('wallet.base_network'),
+	strings('wallet.blast_network'),
+	strings('wallet.fantom_network'),
+	strings('wallet.mantle_network'),
+	strings('wallet.aurora_network'),
+	strings('wallet.manta_network'),
+	strings('wallet.era_network'),
+	strings('wallet.gnosis_network'),
+	strings('wallet.linea_network'),
+	strings('wallet.scroll_network'),
 	RPC
 ];
 export const ChainTypeIcons = [
@@ -41,6 +61,16 @@ export const ChainTypeIcons = [
 	require('../images/ic_card_avax.png'),
 	require('../images/ic_card_syscoin.png'),
 	require('../images/ic_card_rollux.png'),
+	require('../images/ic_card_base.png'),
+	require('../images/ic_card_blast.png'),
+	require('../images/ic_card_fantom.png'),
+	require('../images/ic_card_mantle.png'),
+	require('../images/ic_card_aurora.png'),
+	require('../images/ic_card_manta.png'),
+	require('../images/ic_card_era.png'),
+	require('../images/ic_card_gnosis.png'),
+	require('../images/ic_card_linea.png'),
+	require('../images/ic_card_scroll.png'),
 	require('../images/ic_card_other.png')
 ];
 export const ChainTypeMoreIcons = [
@@ -54,6 +84,16 @@ export const ChainTypeMoreIcons = [
 	require('../images/ic_card_more_avax.png'),
 	require('../images/ic_card_more_syscoin.png'),
 	require('../images/ic_card_more_rollux.png'),
+	require('../images/ic_card_more_base.png'),
+	require('../images/ic_card_more_blast.png'),
+	require('../images/ic_card_more_fantom.png'),
+	require('../images/ic_card_more_mantle.png'),
+	require('../images/ic_card_more_aurora.png'),
+	require('../images/ic_card_more_manta.png'),
+	require('../images/ic_card_more_era.png'),
+	require('../images/ic_card_more_gnosis.png'),
+	require('../images/ic_card_more_linea.png'),
+	require('../images/ic_card_more_scroll.png'),
 	require('../images/ic_card_more_other.png')
 ];
 export const ChainTypeBg = [
@@ -67,6 +107,16 @@ export const ChainTypeBg = [
 	require('../images/avalanche-bg.png'),
 	require('../images/syscoin-bg.png'),
 	require('../images/rollux-bg.png'),
+	require('../images/base-bg.png'),
+	require('../images/blast-bg.png'),
+	require('../images/fantom-bg.png'),
+	require('../images/mantle-bg.png'),
+	require('../images/aurora-bg.png'),
+	require('../images/manta-bg.png'),
+	require('../images/era-bg.png'),
+	require('../images/gnosis-bg.png'),
+	require('../images/linea-bg.png'),
+	require('../images/scroll-bg.png'),
 	require('../images/pali-bg.png')
 ];
 
@@ -81,6 +131,16 @@ export const ChainTypeBgWithoutShadows = [
 	require('../images/avalanche-bg.png'),
 	require('../images/syscoin-bg.png'),
 	require('../images/rollux-bg.png'),
+	require('../images/base-bg.png'),
+	require('../images/blast-bg.png'),
+	require('../images/fantom-bg.png'),
+	require('../images/mantle-bg.png'),
+	require('../images/aurora-bg.png'),
+	require('../images/manta-bg.png'),
+	require('../images/era-bg.png'),
+	require('../images/gnosis-bg.png'),
+	require('../images/linea-bg.png'),
+	require('../images/scroll-bg.png'),
 	require('../images/pali-bg.png')
 ];
 export const ChainTypeCheckColorStyle = [
@@ -95,6 +155,7 @@ export const ChainTypeCheckColorStyle = [
 	{ color: '#030363' },
 	{ color: '#9D7DF8' }
 ];
+
 export const ChainTypeBgOngoing = [
 	require('../images/img_ongoing_eth.png'),
 	require('../images/img_ongoing_eth.png'),
@@ -106,6 +167,16 @@ export const ChainTypeBgOngoing = [
 	require('../images/img_ongoing_avax.png'),
 	require('../images/img_ongoing_syscoin.png'),
 	require('../images/img_ongoing_rollux.png'),
+	require('../images/img_ongoing_base.png'),
+	require('../images/img_ongoing_blast.png'),
+	require('../images/img_ongoing_fantom.png'),
+	require('../images/img_ongoing_mantle.png'),
+	require('../images/img_ongoing_aurora.png'),
+	require('../images/img_ongoing_manta.png'),
+	require('../images/img_ongoing_era.png'),
+	require('../images/img_ongoing_gnosis.png'),
+	require('../images/img_ongoing_linea.png'),
+	require('../images/img_ongoing_scroll.png'),
 	require('../images/img_ongoing_other.png')
 ];
 export const ChainTypeBgDefi = [
@@ -119,6 +190,16 @@ export const ChainTypeBgDefi = [
 	require('../images/ic_defi_avax.png'),
 	require('../images/ic_defi_syscoin.png'),
 	require('../images/ic_defi_rollux.png'),
+	require('../images/ic_defi_base.png'),
+	require('../images/ic_defi_blast.png'),
+	require('../images/ic_defi_fantom.png'),
+	require('../images/ic_defi_mantle.png'),
+	require('../images/ic_defi_aurora.png'),
+	require('../images/ic_defi_manta.png'),
+	require('../images/ic_defi_era.png'),
+	require('../images/ic_defi_gnosis.png'),
+	require('../images/ic_defi_linea.png'),
+	require('../images/ic_defi_scroll.png'),
 	require('../images/letter/ic_defi_other.png')
 ];
 export function getAssetNetworkBarColor(type) {
@@ -138,6 +219,26 @@ export function getAssetNetworkBarColor(type) {
 		? '#1F5EFF'
 		: type === ChainType.Rollux
 		? '#DBEF88'
+		: type === ChainType.Base
+		? '#0229FF'
+		: type === ChainType.Blast
+		? '#FCFC03'
+		: type === ChainType.Fantom
+		? '#1969FF'
+		: type === ChainType.Mantle
+		? '#31D1AC'
+		: type === ChainType.Aurora
+		? '#78D64B'
+		: type === ChainType.Manta
+		? '#29CCB9'
+		: type === ChainType.Era
+		? '#1E69FF'
+		: type === ChainType.Gnosis
+		? '#3E6957'
+		: type === ChainType.Linea
+		? '#60DFFF'
+		: type === ChainType.Scroll
+		? '#EBC28E'
 		: util.isRpcChainType(type)
 		? getTagColor(type)
 		: '#627EEA';
@@ -159,7 +260,28 @@ export function getShareImage(type) {
 		return require('../images/ic_share_syscoin.png');
 	} else if (type === ChainType.Rollux) {
 		return require('../images/ic_share_rollux.png');
+	} else if (type === ChainType.Base) {
+		return require('../images/ic_share_base.png');
+	} else if (type === ChainType.Blast) {
+		return require('../images/ic_share_blast.png');
+	} else if (type === ChainType.Fantom) {
+		return require('../images/ic_share_fantom.png');
+	} else if (type === ChainType.Mantle) {
+		return require('../images/ic_share_mantle.png');
+	} else if (type === ChainType.Aurora) {
+		return require('../images/ic_share_aurora.png');
+	} else if (type === ChainType.Manta) {
+		return require('../images/ic_share_manta.png');
+	} else if (type === ChainType.Era) {
+		return require('../images/ic_share_era.png');
+	} else if (type === ChainType.Gnosis) {
+		return require('../images/ic_share_gnosis.png');
+	} else if (type === ChainType.Linea) {
+		return require('../images/ic_share_linea.png');
+	} else if (type === ChainType.Scroll) {
+		return require('../images/ic_share_scroll.png');
 	}
+
 	return require('../images/ic_share_eth.png');
 }
 
@@ -180,6 +302,26 @@ export function getIcLogoByChainType(type) {
 		? require('../images/ic_logo_syscoin.png')
 		: type === ChainType.Rollux
 		? require('../images/ic_logo_rollux.png')
+		: type === ChainType.Base
+		? require('../images/ic_logo_base.png')
+		: type === ChainType.Blast
+		? require('../images/ic_logo_blast.png')
+		: type === ChainType.Fantom
+		? require('../images/ic_logo_fantom.png')
+		: type === ChainType.Mantle
+		? require('../images/ic_logo_mantle.png')
+		: type === ChainType.Aurora
+		? require('../images/ic_logo_aurora.png')
+		: type === ChainType.Manta
+		? require('../images/ic_logo_manta.png')
+		: type === ChainType.Era
+		? require('../images/ic_logo_era.png')
+		: type === ChainType.Gnosis
+		? require('../images/ic_logo_gnosis.png')
+		: type === ChainType.Linea
+		? require('../images/ic_logo_linea.png')
+		: type === ChainType.Scroll
+		? require('../images/ic_logo_scroll.png')
 		: util.isRpcChainType(type)
 		? getIcLogoResource(type)
 		: require('../images/ic_logo_eth.png');
@@ -202,6 +344,26 @@ export function getIcCardByChainType(type) {
 		? require('../images/ic_card_syscoin.png')
 		: type === ChainType.Rollux
 		? require('../images/ic_card_rollux.png')
+		: type === ChainType.Base
+		? require('../images/ic_card_base.png')
+		: type === ChainType.Blast
+		? require('../images/ic_card_blast.png')
+		: type === ChainType.Fantom
+		? require('../images/ic_card_fantom.png')
+		: type === ChainType.Mantle
+		? require('../images/ic_card_mantle.png')
+		: type === ChainType.Aurora
+		? require('../images/ic_card_aurora.png')
+		: type === ChainType.Manta
+		? require('../images/ic_card_manta.png')
+		: type === ChainType.Era
+		? require('../images/ic_card_era.png')
+		: type === ChainType.Gnosis
+		? require('../images/ic_card_gnosis.png')
+		: type === ChainType.Linea
+		? require('../images/ic_card_linea.png')
+		: type === ChainType.Scroll
+		? require('../images/ic_card_scroll.png')
 		: util.isRpcChainType(type)
 		? getIcTagResource(type)
 		: require('../images/ic_card_eth.png');
@@ -224,6 +386,26 @@ export function getIcTagByChainType(type) {
 		? require('../images/ic_syscoin_tag.png')
 		: type === ChainType.Rollux
 		? require('../images/ic_rollux_tag.png')
+		: type === ChainType.Base
+		? require('../images/ic_base_tag.png')
+		: type === ChainType.Blast
+		? require('../images/ic_blast_tag.png')
+		: type === ChainType.Fantom
+		? require('../images/ic_fantom_tag.png')
+		: type === ChainType.Mantle
+		? require('../images/ic_mantle_tag.png')
+		: type === ChainType.Aurora
+		? require('../images/ic_aurora_tag.png')
+		: type === ChainType.Manta
+		? require('../images/ic_manta_tag.png')
+		: type === ChainType.Era
+		? require('../images/ic_era_tag.png')
+		: type === ChainType.Gnosis
+		? require('../images/ic_gnosis_tag.png')
+		: type === ChainType.Linea
+		? require('../images/ic_linea_tag.png')
+		: type === ChainType.Scroll
+		? require('../images/ic_scroll_tag.png')
 		: util.isRpcChainType(type)
 		? getIcTagResource(type)
 		: require('../images/ic_eth_tag.png');
@@ -249,6 +431,7 @@ export function getTabIcon(type) {
 
 	return require('../images/ic_tab_eth.png');
 }
+
 export const getChainTypeName = type => {
 	if (type === ChainType.Bsc) {
 		return strings('other.bsc');
@@ -268,11 +451,32 @@ export const getChainTypeName = type => {
 		return strings('other.syscoin');
 	} else if (type === ChainType.Rollux) {
 		return strings('other.rollux');
+	} else if (type === ChainType.Base) {
+		return strings('other.base');
+	} else if (type === ChainType.Blast) {
+		return strings('other.blast');
+	} else if (type === ChainType.Fantom) {
+		return strings('other.fantom');
+	} else if (type === ChainType.Mantle) {
+		return strings('other.mantle');
+	} else if (type === ChainType.Aurora) {
+		return strings('other.aurora');
+	} else if (type === ChainType.Manta) {
+		return strings('other.manta');
+	} else if (type === ChainType.Era) {
+		return strings('other.era');
+	} else if (type === ChainType.Gnosis) {
+		return strings('other.gnosis');
+	} else if (type === ChainType.Linea) {
+		return strings('other.linea');
+	} else if (type === ChainType.Scroll) {
+		return strings('other.scroll');
 	} else if (util.isRpcChainType(type)) {
 		return getRpcNickname(type) || RPC;
 	}
 	return strings('other.ethereum');
 };
+
 export const getDeveloperTitle = type => {
 	if (type === ChainType.Bsc) {
 		return strings('developer_options.bsc_network');
@@ -292,9 +496,30 @@ export const getDeveloperTitle = type => {
 		return strings('developer_options.syscoin_network');
 	} else if (type === ChainType.Rollux) {
 		return strings('developer_options.rollux_network');
+	} else if (type === ChainType.Base) {
+		return strings('developer_options.base_network');
+	} else if (type === ChainType.Blast) {
+		return strings('developer_options.blast_network');
+	} else if (type === ChainType.Fantom) {
+		return strings('developer_options.fantom_network');
+	} else if (type === ChainType.Mantle) {
+		return strings('developer_options.mantle_network');
+	} else if (type === ChainType.Aurora) {
+		return strings('developer_options.aurora_network');
+	} else if (type === ChainType.Manta) {
+		return strings('developer_options.manta_network');
+	} else if (type === ChainType.Era) {
+		return strings('developer_options.era_network');
+	} else if (type === ChainType.Gnosis) {
+		return strings('developer_options.gnosis_network');
+	} else if (type === ChainType.Linea) {
+		return strings('developer_options.linea_network');
+	} else if (type === ChainType.Scroll) {
+		return strings('developer_options.scroll_network');
 	}
 	return strings('developer_options.ethereum_network');
 };
+
 export const ChainTypeSettingsItems = [
 	{
 		text: strings('wallet.eth_etwork'),
@@ -340,8 +565,59 @@ export const ChainTypeSettingsItems = [
 		text: strings('wallet.rollux_network'),
 		icon: require('../images/img_asset_rollux.png'),
 		chainType: ChainType.Rollux
+	},
+	{
+		text: strings('wallet.base_network'),
+		icon: require('../images/img_asset_base.png'),
+		chainType: ChainType.Base
+	},
+	{
+		text: strings('wallet.blast_network'),
+		icon: require('../images/img_asset_blast.png'),
+		chainType: ChainType.Blast
+	},
+	{
+		text: strings('wallet.fantom_network'),
+		icon: require('../images/img_asset_fantom.png'),
+		chainType: ChainType.Fantom
+	},
+	{
+		text: strings('wallet.mantle_network'),
+		icon: require('../images/img_asset_mantle.png'),
+		chainType: ChainType.Mantle
+	},
+	{
+		text: strings('wallet.aurora_network'),
+		icon: require('../images/img_asset_aurora.png'),
+		chainType: ChainType.Aurora
+	},
+	{
+		text: strings('wallet.manta_network'),
+		icon: require('../images/img_asset_manta.png'),
+		chainType: ChainType.Manta
+	},
+	{
+		text: strings('wallet.era_network'),
+		icon: require('../images/img_asset_era.png'),
+		chainType: ChainType.Era
+	},
+	{
+		text: strings('wallet.gnosis_network'),
+		icon: require('../images/img_asset_gnosis.png'),
+		chainType: ChainType.Gnosis
+	},
+	{
+		text: strings('wallet.linea_network'),
+		icon: require('../images/img_asset_linea.png'),
+		chainType: ChainType.Linea
+	},
+	{
+		text: strings('wallet.scroll_network'),
+		icon: require('../images/img_asset_scroll.png'),
+		chainType: ChainType.Scroll
 	}
 ];
+
 export const chainToChainType = chain => {
 	if (chain === 1) {
 		return ChainType.Ethereum;
@@ -370,6 +646,37 @@ export const chainToChainType = chain => {
 	if (chain === 10) {
 		return ChainType.Rollux;
 	}
+	if (chain === 11) {
+		return ChainType.Base;
+	}
+	if (chain === 12) {
+		return ChainType.Blast;
+	}
+	if (chain === 13) {
+		return ChainType.Fantom;
+	}
+	if (chain === 14) {
+		return ChainType.Mantle;
+	}
+	if (chain === 15) {
+		return ChainType.Aurora;
+	}
+	if (chain === 16) {
+		return ChainType.Manta;
+	}
+	if (chain === 17) {
+		return ChainType.Era;
+	}
+	if (chain === 18) {
+		return ChainType.Gnosis;
+	}
+	if (chain === 19) {
+		return ChainType.Linea;
+	}
+	if (chain === 20) {
+		return ChainType.Scroll;
+	}
+
 	return chain;
 };
 
@@ -400,6 +707,36 @@ export const chainTypeTochain = chainType => {
 	}
 	if (chainType === ChainType.Rollux) {
 		return 10;
+	}
+	if (chainType === ChainType.Base) {
+		return 11;
+	}
+	if (chainType === ChainType.Blast) {
+		return 12;
+	}
+	if (chainType === ChainType.Fantom) {
+		return 13;
+	}
+	if (chainType === ChainType.Mantle) {
+		return 14;
+	}
+	if (chainType === ChainType.Aurora) {
+		return 15;
+	}
+	if (chainType === ChainType.Manta) {
+		return 16;
+	}
+	if (chainType === ChainType.Era) {
+		return 17;
+	}
+	if (chainType === ChainType.Gnosis) {
+		return 18;
+	}
+	if (chainType === ChainType.Linea) {
+		return 19;
+	}
+	if (chainType === ChainType.Scroll) {
+		return 20;
 	}
 
 	return chainType;
