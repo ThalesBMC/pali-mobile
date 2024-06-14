@@ -1075,7 +1075,10 @@ class AssetView extends PureComponent {
 					this.props.toggleShowHint(strings('faucet.request_successful', { amountReceived }), 'success');
 					console.log('Faucet request successful:', data);
 				} else {
-					this.props.toggleShowHint(strings('faucet.request_failed', { message: data.message }), 'error');
+					const requestFailedString = networkKey.includes('testnet')
+						? strings('faucet.request_failed_testnet')
+						: strings('faucet.request_failed');
+					this.props.toggleShowHint(requestFailedString, 'error');
 
 					console.log('Faucet request failed:', data.message);
 				}
@@ -1137,7 +1140,7 @@ class AssetView extends PureComponent {
 					capInsets={baseStyles.capInsets}
 				>
 					<View style={[styles.otherBody]}>{header}</View>
-					{(asset.type === ChainType.Syscoin || asset.type === ChainType.Rollux) && (
+					{(asset.type === ChainType.Syscoin || asset.type === ChainType.Rollux) && asset.nativeCurrency && (
 						<TouchableOpacity
 							activeOpacity={0.8}
 							style={styles.grabFaucetButton}
@@ -1177,7 +1180,13 @@ class AssetView extends PureComponent {
 					)}
 				</ImageCapInset>
 				<View
-					style={{ marginTop: asset.type === ChainType.Syscoin || asset.type === ChainType.Rollux ? 40 : 0 }}
+					style={{
+						marginTop:
+							(asset.type === ChainType.Syscoin || asset.type === ChainType.Rollux) &&
+							asset.nativeCurrency
+								? 40
+								: 0
+					}}
 				>
 					{asset.lockType ? (
 						<ImageCapInset
@@ -1201,7 +1210,7 @@ class AssetView extends PureComponent {
 						this.renderAsset()
 					)}
 				</View>
-				{(asset.type === ChainType.Syscoin || asset.type === ChainType.Rollux) && (
+				{(asset.type === ChainType.Syscoin || asset.type === ChainType.Rollux) && asset.nativeCurrency && (
 					<ImageCapInset
 						style={[styles.cardWrapper, styles.headerMargin]}
 						source={
