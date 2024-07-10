@@ -125,13 +125,7 @@ public class MainApplication extends MultiDexApplication implements ShareApplica
 		return mReactNativeHost;
 	}
 
-		// Put this above  "public void onCreate()":
-	@Override
-	public Intent registerReceiver(@Nullable BroadcastReceiver receiver, IntentFilter filter) {
-		
-		return super.registerReceiver(receiver, filter, Context.RECEIVER_EXPORTED);
-		
-	}
+	
 
 	@Override
 	public void onCreate() {
