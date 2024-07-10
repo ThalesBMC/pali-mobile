@@ -73,14 +73,12 @@ android {
 		missingDimensionStrategy 'react-native-camera', 'general'
 	}
 
-
-
 	signingConfigs {
 		release {
-			storeFile file('../GoPocket')
-			storePassword System.getenv("KEYSTORE_PASSWD")
-			keyAlias 'GoPocket'
-			keyPassword System.getenv("KEYSTORE_PASSWD")
+			storeFile file('paliwallet.keystore')
+			storePassword "paligangue"
+			keyAlias 'my-alias'
+			keyPassword "paligangue"
 		}
 		debug {
             storeFile file('debug.keystore')
