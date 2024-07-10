@@ -18,11 +18,6 @@ import io.invertase.firebase.analytics.ReactNativeFirebaseAnalyticsPackage;
 import io.paliwallet.nativeModules.PreventScreenshotPackage;
 import com.swmansion.reanimated.ReanimatedJSIModulePackage;
 import com.facebook.react.bridge.JSIModulePackage;
-import android.content.BroadcastReceiver;
-import android.content.Intent;
-import android.content.IntentFilter;
-import android.os.Build;
-import org.jetbrains.annotations.Nullable;
 
 
 import android.text.TextUtils;
