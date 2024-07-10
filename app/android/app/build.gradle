@@ -1,7 +1,6 @@
 apply plugin: "com.android.application"
 apply plugin: 'com.google.gms.google-services'
 
-import com.android.build.OutputFile
 
 project.ext.react = [
 	entryFile: "index.js",
@@ -47,6 +46,12 @@ android {
 
 	compileSdkVersion rootProject.ext.compileSdkVersion
 
+	compileOptions {
+		sourceCompatibility JavaVersion.VERSION_1_8
+		targetCompatibility JavaVersion.VERSION_1_8
+	}
+	
+
 
 	defaultConfig {
 		applicationId "io.paliwallet"
@@ -75,13 +80,18 @@ android {
 		missingDimensionStrategy 'react-native-camera', 'general'
 	}
 
+	configurations.all {
+    resolutionStrategy {
+        force 'androidx.test:core:1.5.0'
+   	 }
+	}
+
 	signingConfigs {
 		release {
 			storeFile file('../GoPocket')
 			storePassword System.getenv("KEYSTORE_PASSWD")
 			keyAlias 'GoPocket'
 			keyPassword System.getenv("KEYSTORE_PASSWD")
-		}
 		debug {
             storeFile file('debug.keystore')
             storePassword 'android'
@@ -118,6 +128,7 @@ dependencies {
 	implementation project(path: ":@react-native-firebase_analytics")
 	implementation project(':react-native-theme-switch-animation')
 
+	implementation 'org.jetbrains:annotations:16.0.2'
 	implementation 'androidx.multidex:multidex:2.0.1'
 	implementation 'androidx.annotation:annotation:1.1.0'
 	implementation 'androidx.appcompat:appcompat:1.2.0'

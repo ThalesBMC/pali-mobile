@@ -67,6 +67,7 @@
 -keep class com.ut.** {*;}
 -keep class com.uc.** {*;}
 -keep class com.ta.** {*;}
+-keep class com.facebook.jni.** { *; }
 
 -keep public class **.R$* {
     public static final int *;
