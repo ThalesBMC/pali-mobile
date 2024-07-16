@@ -336,17 +336,6 @@ class CardSwiper extends PureComponent {
 			? this.props.contactEntry.currentChain
 			: ChainType.All;
 		this.setState({ currentChainType });
-		const enabledNetworks = this.props.contactEntry?.enabledChains || defaultEnabledChains;
-		this.updateEnabledChainsProperty(enabledNetworks);
-	};
-
-	updateEnabledChainsProperty = async enabledChains => {
-		try {
-			const chainStrings = enabledChains.map(chain => chain.toString());
-			await firebase.analytics().setUserProperty('enabled_chains', chainStrings);
-		} catch (error) {
-			console.error('Failed to set user property:', error);
-		}
 	};
 
 	UNSAFE_componentWillReceiveProps = nextProps => {

@@ -10,7 +10,11 @@ import {
 	getTokenBalance,
 	hexToBN
 } from '../../../util/number';
+import { WALLET_CONNECT_ORIGIN } from '../../../util/walletconnect';
+
 import { strings } from '../../../../locales/i18n';
+import { getActiveUrl } from '../../../util/browser';
+
 import { connect } from 'react-redux';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import { getNormalizedTxState, getTicker } from '../../../util/transactions';
@@ -25,6 +29,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import { VERIFICATION_DISABLED } from '../../../constants/storage';
 import ReactNativeHapticFeedback from 'react-native-haptic-feedback';
 import { ThemeContext } from '../../../theme/ThemeProvider';
+import { firebase } from '@react-native-firebase/analytics';
 
 const options = {
 	enableVibrateFallback: true,
@@ -126,7 +131,11 @@ class TransactionEditor extends PureComponent {
 		/**
 		 * Whether was prompted from approval
 		 */
-		promptedFromApproval: PropTypes.bool
+		promptedFromApproval: PropTypes.bool,
+
+		/** Browser/tab information
+		 */
+		browser: PropTypes.object
 	};
 
 	state = {
@@ -170,11 +179,30 @@ class TransactionEditor extends PureComponent {
 		this.setState({ checkPassword: false });
 	};
 
+	getUrlFromBrowser() {
+		const { browser, transaction } = this.props;
+		if (transaction.origin && transaction.origin.includes(WALLET_CONNECT_ORIGIN)) {
+			return transaction.origin.split(WALLET_CONNECT_ORIGIN)[1];
+		}
+		return getActiveUrl(browser);
+	}
+
 	/**
 	 * Call callback when transaction is confirmed, after being validated
 	 */
 	doConfirm = async () => {
-		const { onConfirm } = this.props;
+		const { onConfirm, transaction, browser } = this.props;
+		const origin = transaction.origin;
+		// Add transaction information to Firebase Analytics
+		const currentPageInformation = { url: this.getUrlFromBrowser(), origin };
+		console.log(transaction.symbol, 'paulo2', currentPageInformation.origin);
+		await firebase.analytics().logEvent('transaction_dapp_sent', {
+			chainId: transaction.chainId,
+			url: currentPageInformation.url,
+			origin: currentPageInformation.origin,
+			symbol: transaction.symbol
+		});
+
 		onConfirm && (await onConfirm());
 		this.setState({ loading: false });
 	};
@@ -449,7 +477,8 @@ const mapStateToProps = state => ({
 			state.engine.backgroundState.PreferencesController.selectedAddress
 		] || {},
 	selectedAddress: state.engine.backgroundState.PreferencesController.selectedAddress,
-	transaction: getNormalizedTxState(state)
+	transaction: getNormalizedTxState(state),
+	browser: state.browser
 });
 
 const mapDispatchToProps = dispatch => ({
