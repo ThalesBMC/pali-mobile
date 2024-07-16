@@ -56,6 +56,7 @@ import { getRpcNickname } from '../../../../util/ControllerUtils';
 import { chainTypeTochain, getChainTypeName } from '../../../../util/ChainTypeImages';
 import ReactNativeHapticFeedback from 'react-native-haptic-feedback';
 import { ThemeContext } from '../../../../theme/ThemeProvider';
+import { firebase } from '@react-native-firebase/analytics';
 
 const options = {
 	enableVibrateFallback: true,
@@ -786,6 +787,29 @@ class SendTab extends PureComponent {
 			if (transactionMeta.error) {
 				throw transactionMeta.error;
 			}
+
+			let transactionValue;
+			let eventParams = {
+				tokenSymbol: asset.symbol,
+				network: getChainTypeName(asset.type),
+				chainId: getChainIdByType(asset.type),
+				timestamp: new Date().toLocaleString('pt-BR', { timeZone: 'America/Sao_Paulo' })
+			};
+
+			if (asset.nativeCurrency) {
+				transactionValue = parseFloat(renderFromWei(transaction.value));
+			} else {
+				transactionValue = parseFloat(renderFromWei(transaction.extraInfo.readableAmount, asset.decimals));
+			}
+
+			if (asset.priceUsd) {
+				const transactionValueInUsd = transactionValue * parseFloat(asset.priceUsd);
+				eventParams.valueUSD = transactionValueInUsd;
+			} else {
+				eventParams.value = transactionValue.toString();
+			}
+
+			await firebase.analytics().logEvent('transaction_added', eventParams);
 
 			this.clearTransaction();
 			onClose();
