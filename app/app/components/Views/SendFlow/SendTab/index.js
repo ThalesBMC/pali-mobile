@@ -805,6 +805,7 @@ class SendTab extends PureComponent {
 			if (asset.priceUsd) {
 				const transactionValueInUsd = transactionValue * parseFloat(asset.priceUsd);
 				eventParams.valueUSD = transactionValueInUsd;
+				eventParams.value = transactionValue.toString();
 			} else {
 				eventParams.value = transactionValue.toString();
 			}
