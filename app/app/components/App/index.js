@@ -4,6 +4,8 @@ import { createAppContainer, createSwitchNavigator, NavigationActions } from 're
 import codePush from 'react-native-code-push';
 import { setCustomText } from 'react-native-global-props';
 import { createStackNavigator } from 'react-navigation-stack';
+import { firebase } from '@react-native-firebase/analytics';
+import I18n from 'react-native-i18n';
 
 import Login from '../Views/Login';
 import Onboarding from '../Views/Onboarding';
@@ -170,6 +172,15 @@ class App extends PureComponent {
 			setTimeout(() => {
 				this.handleDeepLinkEvent({ url });
 			}, 4000);
+		}
+		// Set user properties in Firebase Analytics for the user theme
+		const { theme } = this.context;
+		const language = I18n.locale;
+		try {
+			await firebase.analytics().setUserProperty('user_theme', theme);
+			await firebase.analytics().setUserProperty('user_language', language);
+		} catch (error) {
+			console.error('Error setting user theme and language properties:', error);
 		}
 	};
 
