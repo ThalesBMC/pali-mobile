@@ -1,7 +1,6 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { copilot, walkthroughable, CopilotStep } from 'react-native-copilot';
-import { firebase } from '@react-native-firebase/analytics';
 import { View, Text, StyleSheet, Dimensions, Image, TouchableOpacity, StatusBar, ScrollView } from 'react-native';
 import Clipboard from '@react-native-community/clipboard';
 import { colors, fontStyles, baseStyles } from '../../../styles/common';

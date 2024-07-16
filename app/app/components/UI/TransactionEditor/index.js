@@ -195,7 +195,7 @@ class TransactionEditor extends PureComponent {
 		const origin = transaction.origin;
 		// Add transaction information to Firebase Analytics
 		const currentPageInformation = { url: this.getUrlFromBrowser(), origin };
-		console.log(transaction.symbol, 'paulo2', currentPageInformation.origin);
+
 		await firebase.analytics().logEvent('transaction_dapp_sent', {
 			chainId: transaction.chainId,
 			url: currentPageInformation.url,
