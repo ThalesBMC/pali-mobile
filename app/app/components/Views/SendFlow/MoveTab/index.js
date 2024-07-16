@@ -1619,7 +1619,8 @@ class MoveTab extends PureComponent {
 							{/*<Text style={styles.bridgeText}>{strings('other.arb_bridge_withdraw_limit')}</Text>*/}
 						</>
 					)}
-					{isCBridge && (
+
+					{/* {isCBridge && (
 						<>
 							<TouchableOpacity onPress={this.todoLifi} activeOpacity={activeOpacity}>
 								<Image
@@ -1629,7 +1630,7 @@ class MoveTab extends PureComponent {
 								/>
 							</TouchableOpacity>
 						</>
-					)}
+					)} */}
 					<View style={baseStyles.flexGrow} />
 				</View>
 			</ScrollView>

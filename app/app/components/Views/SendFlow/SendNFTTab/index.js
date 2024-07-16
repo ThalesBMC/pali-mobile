@@ -561,8 +561,14 @@ class SendNFTTab extends PureComponent {
 
 	onInputPwdResult = async result => {
 		if (result) {
-			this.onConfirm().then(() => {
+			this.onConfirm().then(async () => {
 				this.setLoading(false);
+				await firebase.analytics().logEvent('transaction_nft_sent', {
+					contract_address: asset.asset_contract?.address,
+					chain_id: getChainIdByType(asset.type),
+					network: getChainTypeName(asset.type),
+					timestamp: new Date().toLocaleString('pt-BR', { timeZone: 'America/Sao_Paulo' })
+				});
 				ReactNativeHapticFeedback.trigger('notificationSuccess', options);
 			});
 		} else {

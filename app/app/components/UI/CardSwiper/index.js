@@ -1,6 +1,7 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { copilot, walkthroughable, CopilotStep } from 'react-native-copilot';
+import { firebase } from '@react-native-firebase/analytics';
 import { View, Text, StyleSheet, Dimensions, Image, TouchableOpacity, StatusBar, ScrollView } from 'react-native';
 import Clipboard from '@react-native-community/clipboard';
 import { colors, fontStyles, baseStyles } from '../../../styles/common';
@@ -335,6 +336,17 @@ class CardSwiper extends PureComponent {
 			? this.props.contactEntry.currentChain
 			: ChainType.All;
 		this.setState({ currentChainType });
+		const enabledNetworks = this.props.contactEntry?.enabledChains || defaultEnabledChains;
+		this.updateEnabledChainsProperty(enabledNetworks);
+	};
+
+	updateEnabledChainsProperty = async enabledChains => {
+		try {
+			const chainStrings = enabledChains.map(chain => chain.toString());
+			await firebase.analytics().setUserProperty('enabled_chains', chainStrings);
+		} catch (error) {
+			console.error('Failed to set user property:', error);
+		}
 	};
 
 	UNSAFE_componentWillReceiveProps = nextProps => {
