@@ -1,7 +1,6 @@
 apply plugin: "com.android.application"
 apply plugin: 'com.google.gms.google-services'
 
-import com.android.build.OutputFile
 
 project.ext.react = [
 	entryFile: "index.js",
@@ -47,13 +46,12 @@ android {
 
 	compileSdkVersion rootProject.ext.compileSdkVersion
 
-
 	defaultConfig {
 		applicationId "io.paliwallet"
 		minSdkVersion rootProject.ext.minSdkVersion
 		targetSdkVersion rootProject.ext.targetSdkVersion
-		versionCode 33
-		versionName "1.2.1"
+		versionCode 36
+		versionName "1.2.3"
 		multiDexEnabled true
 		missingDimensionStrategy "minReactNative", "minReactNative46"
 		testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
@@ -117,7 +115,7 @@ dependencies {
 	implementation project(':react-native-gesture-handler')
 	implementation project(path: ":@react-native-firebase_analytics")
 	implementation project(':react-native-theme-switch-animation')
-
+	
 	implementation 'androidx.multidex:multidex:2.0.1'
 	implementation 'androidx.annotation:annotation:1.1.0'
 	implementation 'androidx.appcompat:appcompat:1.2.0'

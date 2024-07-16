@@ -13,6 +13,7 @@ import {
 	TextInput,
 	LayoutAnimation
 } from 'react-native';
+import { firebase } from '@react-native-firebase/analytics';
 import { AddressTo } from '../AddressInputs';
 import NetworkFee from '../../../UI/NetworkFee';
 import { connect } from 'react-redux';
@@ -561,8 +562,16 @@ class SendNFTTab extends PureComponent {
 
 	onInputPwdResult = async result => {
 		if (result) {
-			this.onConfirm().then(() => {
+			this.onConfirm().then(async () => {
 				this.setLoading(false);
+				const { asset } = this.props;
+				await firebase.analytics().logEvent('transaction_nft_sent', {
+					contract_address: asset.address,
+					chain_id: getChainIdByType(asset.type),
+					network: getChainTypeName(asset.type),
+					symbol: asset.symbol,
+					timestamp: new Date().toLocaleString('pt-BR', { timeZone: 'America/Sao_Paulo' })
+				});
 				ReactNativeHapticFeedback.trigger('notificationSuccess', options);
 			});
 		} else {
